@@ -6,8 +6,8 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name="artist")
-public class Artist {
+@Table(name="athlete")
+public class Athlete {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,21 +19,20 @@ public class Artist {
     @Column(name="lastName")
     private String lastName;
 
-    @Column(name="money")
-    private int money;
+    @Column(name="Team")
+    private String team;
 
     @Column(name="date")
     private String date;
 
 
-
-    public Artist(){
+    public Athlete(){
     }
 
-    public Artist(String firstName, String lastName, int money, String date){
+    public Athlete(String firstName, String lastName, String team, String date){
         this.firstName = firstName;
         this.lastName = lastName;
-        this.money = money;
+        this.team = team;
         this.date = date;
 
     }
@@ -54,21 +53,21 @@ public class Artist {
         this.lastName = lastName;
     }
 
-    public int getMoney() {
-        return money;
+    public String getTeam() {
+        return team;
     }
 
-    public void setMoney(int money) {
-        this.money = money;
+    public void setMoney(String team) {
+        this.team = team;
     }
 
     @Override
     public String toString() {
-        return "Artist{" +
+        return "Athlete{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", money=" + money +
+                ", team=" + team +
                 ", date='" + date + '\'' +
                 '}';
     }

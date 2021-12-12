@@ -1,17 +1,30 @@
 package org.example;
 
+import org.w3c.dom.ls.LSOutput;
+
+import java.sql.SQLOutput;
 import java.util.List;
 
 public class Main {
 
     public static void main( String[] args ) {
 
-        ArtistDao artistDao = new ArtistDaoImpl();
+        AthleteDao athleteDao = new AthleteDaoImpl();
 
-       // artistDao.create(new Artist("Frege", "Eriksson", 50000, "1997-02-01"));
+        athleteDao.create(new Athlete("Justin", "Herbert", "Los Angeles Chargers", "1997-02-01"));
+        athleteDao.create(new Athlete("George", "Kittle", "San Fransisco 49ers", "1994-11-15"));
+        athleteDao.create(new Athlete("Christian", "McCaffrey", "Carolina Panthers", "1992-11-15"));
 
-        artistDao.getByBirthdate("1997-02-01").forEach(System.out::println);
+        athleteDao.getByBirthdate("1997-02-01").forEach(System.out::println);
 
-//        artistDao.getAll().forEach(System.out::println);
+        athleteDao.getByName("George Kittle").forEach(System.out::println);
+
+        athleteDao.getByTeam("Carolina Panthers").forEach(System.out::println);
+
+        athleteDao.getAll().forEach(System.out::println);
+
+        System.out.println(athleteDao.getById(3));
+
+
     }
 }
