@@ -1,28 +1,30 @@
-package org.example;
+package test;
 
 import javax.persistence.*;
-
+import java.util.List;
 @Entity
-public class Athlete {
-
+public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    String firstName;
+    String lastName;
+    @OneToMany(cascade = CascadeType.REMOVE)
+    private List<Book> bookList;
 
-    private String firstName;
-    private String lastName;
-    private String team;
-    private String date;
+    public Author(){}
 
-    public Athlete(){
-    }
-
-    public Athlete(String firstName, String lastName, String team, String date){
+    public Author(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.team = team;
-        this.date = date;
+    }
 
+    public List<Book> getBookList() {
+        return bookList;
+    }
+
+    public void setBookList(List<Book> bookList) {
+        this.bookList = bookList;
     }
 
     public String getFirstName() {
@@ -41,22 +43,12 @@ public class Athlete {
         this.lastName = lastName;
     }
 
-    public String getTeam() {
-        return team;
-    }
-
-    public void setTeam(String team) {
-        this.team = team;
-    }
-
     @Override
     public String toString() {
-        return "Athlete{" +
+        return "Author{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", team=" + team +
-                ", date='" + date + '\'' +
                 '}';
     }
 }

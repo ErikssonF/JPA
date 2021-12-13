@@ -10,7 +10,7 @@ public class AthleteDaoImpl implements AthleteDao {
     EntityManager em;
 
     public AthleteDaoImpl() {
-        emf = Persistence.createEntityManagerFactory("jpa");
+        emf = Persistence.createEntityManagerFactory("JPAlabb4");
         em = emf.createEntityManager();
     }
 
@@ -25,13 +25,6 @@ public class AthleteDaoImpl implements AthleteDao {
     @Override
     public Athlete getById(int id) {
         return em.find(Athlete.class, id);
-    }
-
-    @Override
-    public void update(Athlete athlete) {
-        em.getTransaction().begin();
-        em.merge(athlete);
-        em.getTransaction().commit();
     }
 
     @Override

@@ -1,10 +1,5 @@
 package org.example;
 
-import org.w3c.dom.ls.LSOutput;
-
-import java.sql.SQLOutput;
-import java.util.List;
-
 public class Main {
 
     public static void main( String[] args ) {
@@ -24,8 +19,6 @@ public class Main {
         athleteDao.getAll().forEach(System.out::println);
 
         athleteDao.delete(athleteDao.getById(3));
-
-        athleteDao.update(athleteDao.getById(2));
 
         System.out.println(athleteDao.getById(3));
 
