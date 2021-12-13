@@ -23,6 +23,10 @@ public class Main {
 
         athleteDao.getAll().forEach(System.out::println);
 
+        athleteDao.delete(athleteDao.getById(3));
+
+        athleteDao.update(athleteDao.getById(2));
+
         System.out.println(athleteDao.getById(3));
 
 
